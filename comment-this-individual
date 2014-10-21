@@ -1,25 +1,25 @@
-int num = 60;              (Side of cursor)
-float mx[] = new float[num]; (sketch follows mouse X)
-float my[] = new float[num]; (sketch follows mouse Y)
+int num = 60;              //Side of cursor
+float mx[] = new float[num]; //sketch follows mouse X
+float my[] = new float[num]; //sketch follows mouse Y
 
 void setup() {
-  size(640, 360);   (Size of window)
-  noStroke();       (Takes out the outline of the circle)
-  fill(255, 153);   (Color)
+  size(640, 360);   //Size of window
+  noStroke();       //Takes out the outline of the circle
+  fill(255, 153);   //Color)
 }
 
 void draw() {
-  background(51); (Color of background)
+  background(51); //Color of background
   
   // Cycle through the array, using a different entry on each frame. 
   // Using modulo (%) like this is faster than moving all the values over.
-  int which = frameCount % num;     (Makes frame count a variable)
-  mx[which] = mouseX; (Shape follows mouse X)
-  my[which] = mouseY; (Shape follows mouse Y)
+  int which = frameCount % num;     //Makes frame count a variable
+  mx[which] = mouseX; //Shape follows mouse X
+  my[which] = mouseY; //Shape follows mouse Y
   
-  for (int i = 0; i < num; i++) { (Loop will begin at 0 and will run if i is less than num and add each time)
+  for (int i = 0; i < num; i++) { //Loop will begin at 0 and will run if i is less than num and add each time
     // which+1 is the smallest (the oldest in the array)
-    int index = (which+1 + i) % num;(Variable is defined as the array which adding one i divided by the remainder of num)
-    ellipse(mx[index], my[index], i, i); (Controll size of cirlce with mouse X and Y)
+    int index = (which+1 + i) % num; //Variable is defined as the array which adding one i divided by the remainder of num
+    ellipse(mx[index], my[index], i, i); //Controll size of cirlce with mouse X and Y
   }
 }
